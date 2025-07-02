@@ -1,18 +1,10 @@
-// src/components/CarCard.jsx
 import React from 'react';
-import { Tag } from 'antd';
+import { Link } from 'react-router-dom';
 import { HeartOutlined, DashboardOutlined, FireOutlined, GatewayOutlined } from '@ant-design/icons';
 
 const CarCard = ({ car }) => {
   const getBadgeColor = (text) => {
-    switch (text.toLowerCase()) {
-      case 'great price':
-        return 'bg-green-100 text-green-800';
-      case 'low mileage':
-        return 'bg-blue-100 text-blue-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
+    // ... (kode fungsi getBadgeColor biarkan seperti sebelumnya)
   };
 
   return (
@@ -49,9 +41,9 @@ const CarCard = ({ car }) => {
 
         <div className="flex justify-between items-center mt-2">
           <p className="text-xl font-extrabold text-gray-900">${car.price.toLocaleString()}</p>
-          <a href="#" className="text-sm font-semibold text-blue-600 hover:text-blue-800">
+          <Link to={`/cars/${car.id}`} className="text-sm font-semibold text-blue-600 hover:text-blue-800">
             View Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
