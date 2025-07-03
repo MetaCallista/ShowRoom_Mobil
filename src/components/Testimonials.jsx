@@ -1,18 +1,17 @@
-// src/components/Testimonials.jsx
 import React from 'react';
 import Slider from 'react-slick';
-import TestimonialCard from './TestimonialCard';
+import TestimonialCard from './TestimonialCard.jsx';
 
 // Impor CSS wajib untuk react-slick
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
 const testimonialsData = [
-    { name: 'Ali Tufan', quote: 'Sales process was simple and easy to understand. Maxmillian was friendly and I didn\'t feel...' },
-    { name: 'John Doe', quote: 'Good job for project coordination. Sales process was simple and easy. Maxmillian was friendly and I...' },
-    { name: 'Brooklynn Simmons', quote: 'Sales process was simple and easy. Maxmillian was friendly and made my car search and buying...' },
-    { name: 'Augusta Silva', quote: 'Sales process was simple and easy. Maxmillian was friendly and I didn\'t feel...' },
-    { name: 'Jane Smith', quote: 'A fantastic experience from start to finish. Highly recommended for anyone looking for a new car.' },
+    { name: 'Ali Tufan', quote: 'Proses penjualannya sederhana dan mudah dipahami. Timnya ramah dan saya tidak merasa tertekan sama sekali.' },
+    { name: 'Putu Suartawan', quote: 'Kerja bagus untuk koordinasinya. Prosesnya mudah dan salesnya sangat membantu saya memilih mobil yang tepat.' },
+    { name: 'Brooklyn Simmons', quote: 'Prosesnya mudah. Salesnya ramah dan membuat pencarian serta pembelian mobil saya menjadi pengalaman yang menyenangkan.' },
+    { name: 'Gede Wijaya', quote: 'Pelayanannya sangat memuaskan. Mobil yang saya terima kondisinya lebih baik dari yang saya harapkan. Terima kasih!' },
+    { name: 'Jane Smith', quote: 'Pengalaman yang luar biasa dari awal sampai akhir. Sangat direkomendasikan untuk siapa pun yang mencari mobil bekas berkualitas di Buleleng.' },
 ];
 
 const Testimonials = () => {
@@ -36,14 +35,14 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-gray-50 pt-8 sm:pt-12 pb-16 sm:pb-24">
+    <div className="bg-gray-50 pt-16 pb-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-4">
+        <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            What our customers say
+            Apa Kata Pelanggan Kami
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Rated 4.7 / 5 based on 28,370 reviews Showing our 4 & 5 star reviews
+            Peringkat 4.7 / 5 berdasarkan 28,370 ulasan. Menampilkan ulasan bintang 4 & 5 kami.
           </p>
         </div>
         <Slider {...settings}>

@@ -1,69 +1,57 @@
-// src/components/HeroSection.jsx
 import React from 'react';
-import { Select, Button, Space, Typography } from 'antd';
+import { Button, Select, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-
-const { Title, Text } = Typography;
-const { Option } = Select;
 
 const HeroSection = () => {
   return (
-    <div className="relative w-full h-[100vh] overflow-hidden">
-      {/* Background Image */}
+    <div className="relative h-screen">
       <img
-        src="assets/images/hero.jpg"
-        alt="Hero"
-        className="absolute inset-0 w-full h-full object-cover"
+        src="/assets/images/hero.jpg" // Ganti dengan gambar ikonik Buleleng
+        alt="Showroom mobil bekas di Buleleng"
+        className="w-full h-full object-cover"
       />
-
-      {/* Overlay hitam */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-
-      {/* Konten */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-2">
-        <Text className="text-xs -mb-8 sm:text-xm text-white">
-          Find cars for sale and for rent near you
-        </Text>
-        <Title className="!text-white text-lg sm:text-5xl font-bold">
-          Find Your Dream Car
-        </Title>
-
-        {/* Filter Dropdown */}
-        <div className="mt-8 flex justify-center">
-          <Space
-            size="middle"
-            className="bg-white rounded-full px-4 py-2 shadow-lg flex-wrap"
-          >
-            <Select defaultValue="Used Cars" style={{ width: 140 }}>
-              <Option value="used">Used Cars</Option>
-              <Option value="new">New Cars</Option>
-            </Select>
-
-            <Select defaultValue="Any Makes" style={{ width: 140 }}>
-              <Option value="toyota">Toyota</Option>
-              <Option value="honda">Honda</Option>
-              <Option value="bmw">BMW</Option>
-            </Select>
-
-            <Select defaultValue="Any Models" style={{ width: 140 }}>
-              <Option value="civic">Civic</Option>
-              <Option value="camry">Camry</Option>
-              <Option value="fortuner">Fortuner</Option>
-            </Select>
-
-            <Select defaultValue="All Prices" style={{ width: 140 }}>
-              <Option value="under100">Under $100k</Option>
-              <Option value="100-300">$100k - $300k</Option>
-              <Option value="300up">Above $300k</Option>
-            </Select>
-
-            <Button
-              type="primary"
-              shape="circle"
-              icon={<SearchOutlined />}
-              size="large"
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+          Cari Mobil Bekas Berkualitas di Buleleng?
+        </h1>
+        <p className="mt-4 text-lg md:text-xl max-w-2xl">
+          Setiap mobil telah lulus inspeksi ketat dan bergaransi. Temukan yang terbaik untuk Anda di Bali Utara.
+        </p>
+        
+        <div className="mt-8 w-full max-w-4xl">
+          <Space.Compact size="large" className="w-full">
+            <Select
+              defaultValue="any"
+              className="w-1/4"
+              options={[
+                { value: 'any', label: 'Semua Merek' },
+                { value: 'toyota', label: 'Toyota' },
+                { value: 'daihatsu', label: 'Daihatsu' },
+                { value: 'honda', label: 'Honda' },
+              ]}
             />
-          </Space>
+            <Select
+              defaultValue="any"
+              className="w-1/4"
+              options={[
+                { value: 'any', label: 'Semua Model' },
+              ]}
+            />
+            <Select
+              defaultValue="any"
+              className="w-1/4"
+              options={[
+                { value: 'any', label: 'Semua Harga' },
+                { value: '0-100', label: 'Di bawah 100 Jt' },
+                { value: '100-200', label: '100 - 200 Jt' },
+              ]}
+            />
+            <Button type="primary" icon={<SearchOutlined />} className="w-1/4">
+              Cari Mobil
+            </Button>
+          </Space.Compact>
         </div>
       </div>
     </div>

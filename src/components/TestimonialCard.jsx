@@ -1,4 +1,3 @@
-// src/components/TestimonialCard.jsx
 import React from 'react';
 import { StarFilled, CheckCircleFilled } from '@ant-design/icons';
 
@@ -10,7 +9,7 @@ const TestimonialCard = ({ testimonial }) => {
       </div>
       <div className="flex items-center gap-2 mt-2 text-xs text-green-600 font-semibold">
         <CheckCircleFilled />
-        <span>Verified</span>
+        <span>Terverifikasi</span>
       </div>
       <p className="mt-4 text-gray-700 text-sm">{testimonial.quote}</p>
       <p className="mt-4 font-bold text-gray-900 text-sm">{testimonial.name}</p>
