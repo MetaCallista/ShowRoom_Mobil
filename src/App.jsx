@@ -10,6 +10,10 @@ import AuthPage from './pages/AuthPage.jsx';
 import HelpPage from './pages/HelpPage.jsx'; // <-- Impor
 import ContactPage from './pages/ContactPage.jsx'; // <-- Impor
 import AdminDashboard from './pages/AdminDashboard.jsx';
+import KelolaMobil from './pages/KelolaMobil';
+import TambahMobil from './pages/TambahMobil';
+import EditMobil from './pages/EditMobil';
+import BlankLayout from './layouts/BlankLayout';
 
 function App() {
   return (
@@ -21,15 +25,26 @@ function App() {
         <Route path="/cars/:carId" element={<CarDetailPage />} />
         <Route path="/blog" element={<BlogIndexPage />} />
         <Route path="/blog/:postId" element={<BlogPostPage />} />
-        <Route path="/bantuan" element={<HelpPage />} /> {/* <-- Tambahkan rute */}
-        <Route path="/kontak" element={<ContactPage />} /> {/* <-- Tambahkan rute */}
+        <Route path="/bantuan" element={<HelpPage />} />
+        <Route path="/kontak" element={<ContactPage />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        
+
+
       </Route>
 
-      {/* Halaman tanpa Navbar & Footer */}
+      {/* Layout kosong (tanpa Navbar/Footer) */}
+      <Route element={<BlankLayout />}>
+        <Route path="/admin/mobil/tambah" element={<TambahMobil />} />
+        <Route path="/admin/mobil/edit/:id" element={<EditMobil />} />
+        <Route path="/admin/mobil" element={<KelolaMobil />} />
+      </Route>
+
+      {/* Login page juga tanpa Navbar/Footer */}
       <Route path="/login" element={<AuthPage />} />
     </Routes>
   );
 }
+
 
 export default App;
