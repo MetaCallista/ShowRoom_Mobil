@@ -41,7 +41,7 @@ const LatestBlogPosts = () => {
 
   return (
     <div className="bg-gray-50 pt-16 pb-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         {/* Header */}
         <div className="flex justify-between items-center mb-10">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">

@@ -2,6 +2,7 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import ExploreVehicles from '../components/ExploreVehicles';
+import DualCtaCard from '../components/DualCtaCard';
 import WhyChooseUs from '../components/WhyChooseUs'; 
 import LatestBlogPosts from '../components/LatestBlogPosts'; 
 import Testimonials from '../components/Testimonials';
@@ -12,6 +13,7 @@ const LandingPage = () => {
     <>
       <HeroSection />
       <ExploreVehicles />
+      <DualCtaCard />
       <WhyChooseUs />
       <LatestBlogPosts />
       <Testimonials />

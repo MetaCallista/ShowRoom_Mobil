@@ -14,6 +14,10 @@ const ExploreVehicles = () => {
       { id: 2, name: 'T-Cross - 2023', spec: '4.0 D5...', mileage: '15 Miles', fuel: 'Bensin', transmission: 'CVT', price: 15000, imageUrl: '/assets/images/t-cross.png' },
       { id: 3, name: 'C-Class - 2023', spec: '4.0 D5...', mileage: '50 Miles', fuel: 'Bensin', transmission: 'Otomatis', price: 150000, imageUrl: '/assets/images/c-class.png', badge: 'Lulus Inspeksi' },
       { id: 4, name: 'Ford Transit - 2021', spec: '4.0 D5...', mileage: '2500 Miles', fuel: 'Diesel', transmission: 'Manual', price: 22000, imageUrl: '/assets/images/ford-transit.png', badge: 'Harga Terbaik' },
+      { id: 5, name: 'Toyota Camry New', spec: '3.5 D5...', mileage: '20 Miles', fuel: 'Bensin', transmission: 'Otomatis', price: 40000, imageUrl: '/assets/images/camry.png', badge: 'Harga Terbaik' },
+      { id: 6, name: 'T-Cross - 2023', spec: '4.0 D5...', mileage: '15 Miles', fuel: 'Bensin', transmission: 'CVT', price: 15000, imageUrl: '/assets/images/t-cross.png' },
+      { id: 7, name: 'C-Class - 2023', spec: '4.0 D5...', mileage: '50 Miles', fuel: 'Bensin', transmission: 'Otomatis', price: 150000, imageUrl: '/assets/images/c-class.png', badge: 'Lulus Inspeksi' },
+      { id: 8, name: 'Ford Transit - 2021', spec: '4.0 D5...', mileage: '2500 Miles', fuel: 'Diesel', transmission: 'Manual', price: 22000, imageUrl: '/assets/images/ford-transit.png', badge: 'Harga Terbaik' },
     ];
     setCars(placeholderCars);
   }, []);
@@ -35,10 +39,10 @@ const ExploreVehicles = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-4 sm:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center">
-          <h2 className="text-3xl font-extrabold text-gray-900">Jelajahi Pilihan Mobil Kami</h2>
+    <div className="bg-gray-50 py-16 px-4 sm:px-8 lg:px-16 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+        <div className="flex justify-between items-center ">
+          <h2 className="text-3xl font-bold text-gray-900">Jelajahi Pilihan Mobil Kami</h2>
           <Link to="/listing" className="text-sm font-semibold text-blue-600 hover:text-blue-800">
             Lihat Semua
           </Link>

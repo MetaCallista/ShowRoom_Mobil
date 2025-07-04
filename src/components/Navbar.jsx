@@ -14,25 +14,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center px-8 py-4 bg-transparent absolute top-0 left-0 w-full z-20">
-      <Link to="/" className="text-white text-2xl font-bold">SHOWCAR BULELENG</Link>
+    <nav className="max-w-7xl mx-auto mt-6 mb-8 px-8 py-4 bg-white rounded-xl shadow flex justify-between items-center">
+      <Link to="/" className="text-black text-2xl font-bold">SHOWCAR</Link>
       
       {/* Menu Navigasi Utama */}
-      <div className="hidden md:flex gap-6 items-center text-white font-medium">
-        <Link to="/" className="hover:text-gray-300">Beranda</Link>
-        <Link to="/listing" className="hover:text-gray-300">Daftar Mobil</Link>
-        <Link to="/blog" className="hover:text-gray-300">Blog</Link>
-        <Link to="/bantuan" className="hover:text-gray-300">Bantuan</Link>
-        <Link to="/kontak" className="hover:text-gray-300">Kontak</Link>
+      <div className="hidden md:flex gap-6 items-center text-black font-medium">
+        <Link to="/" className="hover:text-blue-600">Beranda</Link>
+        <Link to="/listing" className="hover:text-blue-600">Daftar Mobil</Link>
+        <Link to="/blog" className="hover:text-blue-600">Artikel</Link>
+        <Link to="/bantuan" className="hover:text-blue-600">Bantuan</Link>
+        <Link to="/kontak" className="hover:text-blue-600">Contact</Link>
         
         {/* Tampilkan link Dashboard Admin hanya jika peran adalah 'admin' */}
         {currentUser && currentUser.role === 'admin' && (
-            <Link to="/admin" className="text-yellow-400 hover:text-yellow-300 font-bold">Dashboard Admin</Link>
+            <Link to="/admin" className="text-yellow-500 hover:text-yellow-400 font-bold">Dashboard Admin</Link>
         )}
       </div>
 
       {/* Bagian Kanan: Tombol Aksi & Info Pengguna */}
-      <div className="hidden md:flex items-center gap-4 text-white font-medium">
+      <div className="hidden md:flex items-center gap-4 text-black font-medium">
         {currentUser ? (
           // Jika ada pengguna yang login
           <>
@@ -47,9 +47,9 @@ const Navbar = () => {
         ) : (
           // Jika tidak ada yang login
           <>
-            <Link to="/login" className="hover:text-gray-300">Masuk</Link>
-            <Button type="primary" shape="round" onClick={() => navigate('/login')}>
-              Jual Mobil
+            <Link to="/login" className="hover:text-blue-600">Sign in</Link>
+            <Button shape="round" className="border border-black text-black hover:bg-blue-50" onClick={() => navigate('/login')}>
+            Jual Mobil
             </Button>
           </>
         )}

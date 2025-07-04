@@ -40,7 +40,7 @@ const CarCard = ({ car }) => {
         </div>
 
         <div className="flex justify-between items-center mt-2">
-          <p className="text-xl font-extrabold text-gray-900">${car.price.toLocaleString()}</p>
+          <p className="text-xl font-bold text-gray-900">${car.price.toLocaleString()}</p>
           <Link to={`/cars/${car.id}`} className="text-sm font-semibold text-blue-600 hover:text-blue-800">
             View Details
           </Link>
