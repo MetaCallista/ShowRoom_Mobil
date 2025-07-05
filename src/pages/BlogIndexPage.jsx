@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Pagination } from 'antd';
 import BlogPostCard from '../components/BlogPostCard.jsx';
-import BlogSidebar from '../components/BlogSidebar.jsx'; // <-- TAMBAHKAN BARIS INI
+import BlogSidebar from '../components/BlogSidebar.jsx';
+import PageHero from '../components/PageHero.jsx';
 
 const { Search } = Input;
 
@@ -18,6 +19,7 @@ const BlogIndexPage = () => {
       { id: 4, category: 'Perawatan', author: 'ADMIN', date: '28 Agu 2023', title: 'Tips Merawat Cat Mobil Agar Tetap Kinclong di Cuaca Bali', imageUrl: '/assets/images/new-glc.png' },
       { id: 5, category: 'Ulasan', author: 'ADMIN', date: '12 Agu 2023', title: 'Review Jujur Toyota Raize untuk Jalanan di Buleleng', imageUrl: '/assets/images/audi-a4.png' },
       { id: 6, category: 'Berita', author: 'ADMIN', date: '01 Jul 2023', title: 'Pemerintah Buleleng Dukung Penggunaan Kendaraan Listrik', imageUrl: '/assets/images/corolla-altis.png' },
+      { id: 7, category: 'Berita', author: 'ADMIN', date: '01 Jul 2023', title: 'Pemerintah Buleleng Dukung Penggunaan Kendaraan Listrik', imageUrl: '/assets/images/corolla-altis.png' },
     ];
     setPosts(placeholderPosts);
     setLoading(false);
@@ -28,15 +30,12 @@ const BlogIndexPage = () => {
   }
 
   return (
-    <div className="bg-gray-100">
-      {/* Hero Section untuk Blog */}
-      <div className="relative bg-cover bg-center h-64" style={{ backgroundImage: 'url("/assets/images/hero.jpg")' }}>
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Artikel & Berita</h1>
-          <p className="mt-2 text-lg text-gray-200 max-w-2xl">Temukan berita, ulasan, dan tips terbaru seputar otomotif dari tim Showcar Buleleng.</p>
-        </div>
-      </div>
+    <div className="bg-white">
+      {/* Blog Hero Section */}
+      <PageHero
+        title="Artikel & Berita"
+        desc="Temukan berita, ulasan, dan tips terbaru seputar otomotif dari tim Showcar Buleleng."
+      />
 
       {/* Konten Utama & Sidebar */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">

@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input, Button, message } from 'antd';
 import { PhoneOutlined, MailOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import DetailHero from '../components/DetailHero.jsx';
+import PageHero from '../components/PageHero.jsx';
 
 const { TextArea } = Input;
 
@@ -12,9 +13,13 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="bg-gray-100">
-            <DetailHero />
-            <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 pb-16 -mt-20">
+        <>
+        <PageHero
+            title="Daftar Mobil"
+            desc="Jelajahi koleksi mobil terbaik pilihan Showcar Buleleng. Temukan mobil impianmu di sini!"
+        />
+        <div className="bg-white">
+            <div className=" max-w-7xl mx-auto px-6 lg:px-8 relative z-10 pb-16 pt-5 relative ">
                 <div className="bg-white p-8 rounded-xl shadow-lg border">
                     <div className="text-center">
                         <h1 className="text-4xl font-bold">Hubungi Kami</h1>
@@ -34,7 +39,7 @@ const ContactPage = () => {
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold mb-4">Lokasi Kami</h3>
-                                <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                                <div className="w-50 h-80 rounded-lg overflow-hidden">
                                     {/* Ganti dengan iframe Google Maps Anda */}
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.387978299129!2d115.08861431529813!3d-8.102747194169213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd19b3975a84591%3A0xbc18a38289bfd5d!2sSingaraja!5e0!3m2!1sen!2sid!4v1625458931234!5m2!1sen!2sid" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy"></iframe>
                                 </div>
@@ -64,6 +69,7 @@ const ContactPage = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

@@ -88,9 +88,8 @@ const BlogPostPage = () => {
     }
 
     return (
-        <div className="bg-gray-100">
-            <DetailHero />
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-16 -mt-20">
+        <div className="bg-white">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-16 mt-20 ">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                     
                     {/* Kolom Kiri: Konten Artikel Utama */}
@@ -118,10 +117,6 @@ const BlogPostPage = () => {
 
                         {/* === Tags & Share === */}
                         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                            <div>
-                                <span className="font-bold mr-2">Tag:</span>
-                                {post.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
-                            </div>
                             <div className="flex items-center gap-4">
                                 <span className="font-bold">Bagikan:</span>
                                 <a href="#" className="text-gray-500 hover:text-blue-600"><FacebookFilled /></a>
@@ -149,7 +144,7 @@ const BlogPostPage = () => {
 
                     {/* Kolom Kanan: Sidebar */}
                     <div className="lg:col-span-1">
-                        <div className="sticky top-28">
+                        <div className="sticky top-0">
                             <BlogSidebar />
                         </div>
                     </div>

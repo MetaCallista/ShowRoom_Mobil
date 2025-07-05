@@ -2,6 +2,7 @@ import React from 'react';
 import { Collapse } from 'antd';
 import { CarOutlined, MoneyCollectOutlined, SolutionOutlined, PhoneOutlined } from '@ant-design/icons';
 import DetailHero from '../components/DetailHero.jsx';
+import PageHero from '../components/PageHero.jsx';
 
 const { Panel } = Collapse;
 
@@ -34,12 +35,14 @@ const faqData = [
 
 const HelpPage = () => {
   return (
-    <div className="bg-gray-100">
-        <DetailHero />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 pb-16 -mt-20">
+    <>
+        <PageHero
+        title="Pusat Bantuan"
+        desc="Punya pertanyaan? Kami siap membantu. Temukan jawaban Anda di bawah ini."
+      />
+    <div className="bg-white">
+        <div className=" max-w-7xl mx-auto px-6 lg:px-8 relative z-10 pb-16 pt-5">
             <div className="bg-white p-8 rounded-xl shadow-lg border">
-                <h1 className="text-4xl font-bold text-center mb-2">Pusat Bantuan</h1>
-                <p className="text-center text-gray-600 mb-8">Punya pertanyaan? Kami siap membantu. Temukan jawaban Anda di bawah ini.</p>
                 <Collapse accordion defaultActiveKey={['1']} bordered={false} className="bg-white">
                     {faqData.map(faq => (
                         <Panel 
@@ -58,6 +61,7 @@ const HelpPage = () => {
             </div>
         </div>
     </div>
+    </>
   );
 };
 

@@ -41,10 +41,10 @@ const LatestBlogPosts = () => {
 
   return (
     <div className="bg-gray-50 pt-16 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="flex justify-between items-center mb-10">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
             Artikel & Berita Terbaru
           </h2>
           <Link to="/blog" className="text-sm font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-2">

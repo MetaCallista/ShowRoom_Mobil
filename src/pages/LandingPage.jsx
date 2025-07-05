@@ -5,7 +5,6 @@ import ExploreVehicles from '../components/ExploreVehicles';
 import DualCtaCard from '../components/DualCtaCard';
 import WhyChooseUs from '../components/WhyChooseUs'; 
 import LatestBlogPosts from '../components/LatestBlogPosts'; 
-import Testimonials from '../components/Testimonials';
 import CtaBanner from '../components/CtaBanner';
 
 const LandingPage = () => {
@@ -16,7 +15,6 @@ const LandingPage = () => {
       <DualCtaCard />
       <WhyChooseUs />
       <LatestBlogPosts />
-      <Testimonials />
       <CtaBanner />
     </>
   );

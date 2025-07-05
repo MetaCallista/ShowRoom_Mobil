@@ -32,18 +32,6 @@ const BlogSidebar = () => {
                 </div>
             </div>
 
-            {/* Widget Kategori */}
-            <div className="bg-white p-6 rounded-xl border shadow-sm">
-                <h3 className="text-xl font-bold mb-4 pb-2 border-b">Kategori</h3>
-                <div className="space-y-3">
-                    {categories.map(cat => (
-                        <Link key={cat.name} to="#" className="flex justify-between items-center text-gray-700 hover:text-blue-600">
-                            <span>{cat.name}</span>
-                            <span className="bg-gray-200 text-xs font-semibold px-2 py-1 rounded-full">{cat.count}</span>
-                        </Link>
-                    ))}
-                </div>
-            </div>
         </div>
     );
 };

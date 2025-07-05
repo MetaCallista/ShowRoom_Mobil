@@ -15,9 +15,6 @@ const BlogPostCard = ({ post }) => {
           alt={post.title} 
           className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105" 
         />
-        <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-          {post.category}
-        </div>
       </div>
       
       {/* Bagian Konten Teks */}

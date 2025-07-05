@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-logout-btn {
+  color: #dc2626 !important;
+  border-color: #dc2626 !important;
+  background: #fff !important;
+  border-radius: 9999px !important;
+  border-width: 1px !important;
+}
+.custom-logout-btn:hover, .custom-logout-btn:focus {
+  background: #dc2626 !important;
+  color: #fff !important;
+  border-color: #dc2626 !important;
+}

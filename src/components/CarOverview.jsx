@@ -3,14 +3,12 @@ import { CalendarOutlined, CarOutlined, SettingOutlined, DashboardOutlined, BgCo
 
 const CarOverview = ({ overview }) => {
   const items = [
-    { icon: <CalendarOutlined />, label: 'Year', value: overview.year },
-    { icon: <CarOutlined />, label: 'Make', value: overview.make },
-    { icon: <SettingOutlined />, label: 'Model', value: overview.model },
-    { icon: <SlidersOutlined />, label: 'Trim', value: overview.trim },
-    { icon: <DashboardOutlined />, label: 'Mileage', value: overview.mileage },
-    { icon: <BgColorsOutlined />, label: 'Body Type', value: overview.body_type },
-    { icon: <ThunderboltOutlined />, label: 'Fuel Type', value: overview.fuel_type },
-    { icon: <CloudServerOutlined />, label: 'Transmission', value: overview.transmission },
+    { icon: <CalendarOutlined />, label: 'Tahun Produksi', value: overview.year },
+    { icon: <CarOutlined />, label: 'Brand Mobil', value: overview.car_brand },
+    { icon: <DashboardOutlined />, label: 'Jarak Tempuh (KM)', value: overview.mileage },
+    { icon: <BgColorsOutlined />, label: 'Warna', value: overview.car_color },
+    { icon: <ThunderboltOutlined />, label: 'Bahan Bakar', value: overview.fuel_type },
+    { icon: <CloudServerOutlined />, label: 'Transmisi', value: overview.transmission },
   ];
 
   return (

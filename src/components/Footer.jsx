@@ -15,8 +15,8 @@ const Footer = () => {
         {/* Newsletter Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 pb-12 border-b">
           <div>
-            <h3 className="text-2xl font-bold text-gray-900">Gabung dengan Showcar Buleleng</h3>
-            <p className="text-sm text-gray-600 mt-1">Dapatkan info harga terbaru, tips & penawaran menarik!</p>
+            <h3 className="text-2xl font-bold text-gray-900">Join BoxCar</h3>
+            <p className="text-sm text-gray-600 mt-1">Receive pricing updates, shopping tips & more!</p>
           </div>
           <div className="w-full md:w-auto flex items-center gap-2">
             <Input 

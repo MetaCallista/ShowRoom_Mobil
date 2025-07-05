@@ -1,37 +1,13 @@
-import React, { useState } from 'react';
-import { Input, Button } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import React from 'react';
 
-const ListingHero = () => {
-    const [search, setSearch] = useState('');
+const ListingHero = () => (
+  <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mt-12 mb-8">
+    <div className="relative w-full aspect-[3/1] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-r from-blue-100 to-blue-300 flex items-center justify-center">
+      <h1 className="text-3xl md:text-5xl font-bold text-gray-800 text-center drop-shadow-lg">
+        Temukan Mobil Impianmu di Showcar
+      </h1>
+    </div>
+  </div>
+);
 
-    return (
-        <div className="relative w-full h-[250px] bg-white">
-            {/* Lapisan overlay gelap agar filter lebih mudah dibaca */}
-            <div className="absolute inset-0 flex items-center justify-center pb-8 px-4">
-                <div className="w-full max-w-3xl bg-white rounded-full shadow-lg flex items-center px-6 py-3">
-                    <Input
-                        placeholder="Cari mobil..."
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                        className="flex-1 border-none shadow-none focus:ring-0 focus:border-transparent bg-transparent text-lg"
-                        size="large"
-                        style={{ background: 'transparent' }}
-                        onPressEnter={() => {/* lakukan pencarian */}}
-                    />
-                    <Button
-                        type="primary"
-                        icon={<SearchOutlined />}
-                        size="large"
-                        className="ml-4 px-8 rounded-full"
-                        onClick={() => {/* lakukan pencarian */}}
-                    >
-                        Cari
-                    </Button>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default ListingHero;
+export default ListingHero; 

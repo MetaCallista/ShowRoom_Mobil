@@ -34,13 +34,12 @@ const ExploreVehicles = () => {
   // Daftar item untuk Tabs
   const tabItems = [
     { key: '1', label: 'Mobil Terbaru', children: <CarGrid /> },
-    { key: '2', label: 'Mobil Pilihan', children: <CarGrid /> },
-    { key: '3', label: 'Mobil Populer', children: <CarGrid /> },
+    { key: '2', label: 'Merek Pilihan', children: <CarGrid /> },
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-4 sm:px-8 lg:px-16 ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+    <div className="bg-gray-50 py-5 px-4 sm:px-8 lg:px-16 ">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center ">
           <h2 className="text-3xl font-bold text-gray-900">Jelajahi Pilihan Mobil Kami</h2>
           <Link to="/listing" className="text-sm font-semibold text-blue-600 hover:text-blue-800">
