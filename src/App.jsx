@@ -19,7 +19,7 @@ import ReservationPage from './pages/ReservationPage.jsx';
 
 // Halaman Admin
 import AdminDashboardPage from './pages/Admin/AdminDashboard.jsx';
-import KelolaMobilPage from './pages/Admin/KelolaMobilAdmin.jsx';
+import KelolaMobilAdmin from './pages/Admin/KelolaMobilAdmin.jsx';
 import TambahMobilPage from './pages/Admin/TambahMobil.jsx';
 import EditMobilAdmin from './pages/Admin/EditMobilAdmin.jsx';
 import KelolaPenggunaPage from './pages/Admin/KelolaPengguna.jsx';
@@ -66,7 +66,7 @@ function App() {
           {/* Rute Admin Terproteksi */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboardPage />} />
-            <Route path="mobil" element={<KelolaMobilPage />} />
+            <Route path="mobil" element={<KelolaMobilAdmin />} />
             <Route path="mobil/tambah" element={<TambahMobilPage />} />
             <Route path="mobil/edit/:carId" element={<EditMobilAdmin />} />
             <Route path="pengguna" element={<KelolaPenggunaPage />} />
@@ -83,7 +83,7 @@ function App() {
             <Route path="mobil" element={<KelolaMobilUser />} />
             <Route path="reservasi" element={<KelolaReservasiPage />} />
             <Route path="mobil/tambah" element={<JualMobilPage />} />
-            <Route path="mobil/edit/:postId" element={<EditMobilUser />} />
+            <Route path="mobil/edit/:carId" element={<EditMobilUser />} />
             <Route path="profile" element={<UserProfilePage  />} />
           </Route>
         </Routes>

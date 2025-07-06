@@ -44,7 +44,8 @@ export function CarProvider({ children }) {
       ...newCarData,
       id: Date.now(), // ID unik sederhana
       key: Date.now().toString(),
-      status: 'Tersedia', // Status default untuk mobil baru
+      status: 'Tersedia',
+      nama_mobil: newCarData.name// Status default untuk mobil baru
     };
     setCars(prevCars => [newCar, ...prevCars]);
   };

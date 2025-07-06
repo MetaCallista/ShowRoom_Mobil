@@ -4,7 +4,7 @@ import { PlusOutlined, EditOutlined, DeleteOutlined, SearchOutlined } from '@ant
 import { useNavigate } from 'react-router-dom';
 import { useCar } from '../../context/CarContext.jsx'; // <-- Impor context
 
-const KelolaMobil = () => {
+const KelolaMobilAdmin = () => {
   const { cars, deleteCar } = useCar(); // <-- Gunakan data dan fungsi dari context
   const [searchText, setSearchText] = useState('');
   const navigate = useNavigate();
@@ -46,4 +46,4 @@ const KelolaMobil = () => {
   );
 };
 
-export default KelolaMobil;
+export default KelolaMobilAdmin;

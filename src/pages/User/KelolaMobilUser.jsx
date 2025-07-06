@@ -26,7 +26,7 @@ const KelolaMobilUser = () => {
   ];
 
   const filteredData = cars.filter(item => 
-    item.nama_mobil.toLowerCase().includes(searchText.toLowerCase())
+    item.nama_mobil?.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (
