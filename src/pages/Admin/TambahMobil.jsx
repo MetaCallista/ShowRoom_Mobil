@@ -3,6 +3,7 @@ import { Form, Input, Button, Select, InputNumber, Upload, notification, Row, Co
 import { useNavigate } from 'react-router-dom';
 import { InboxOutlined } from '@ant-design/icons';
 import { useCar } from '../../context/CarContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 const { Option } = Select;
 const { Dragger } = Upload;
@@ -11,13 +12,25 @@ const TambahMobil = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const { addCar } = useCar();
+  const { currentUser } = useAuth();
   const [api, contextHolder] = notification.useNotification(); // <-- 1. Gunakan hook notifikasi
 
   const normFile = (e) => {
     if (Array.isArray(e)) { return e; }
     return e && e.fileList;
   };
-  const beforeUpload = () => false;
+
+  const beforeUpload = (file) => {
+      const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+      if (!isJpgOrPng) {
+        notification.error({
+          message: 'Tipe File Salah',
+          description: 'Anda hanya bisa mengunggah file JPG/PNG!',
+          placement: 'topRight',
+        });
+      }
+      return isJpgOrPng ? false : Upload.LIST_IGNORE;
+    };
 
   const onFinish = (values) => {
     try {

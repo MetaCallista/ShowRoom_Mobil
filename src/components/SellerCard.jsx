@@ -3,7 +3,7 @@ import { EnvironmentOutlined, PhoneOutlined, ArrowRightOutlined } from '@ant-des
 import { useNavigate } from 'react-router-dom';
 
 // Destructure the props directly in the function signature
-const SellerCard = ({ sellerImage, sellerName, sellerAddress, sellerPhone }) => {
+const SellerCard = ({ sellerImage, sellerName, sellerAddress, sellerPhone, carId }) => {
   const navigate = useNavigate();
   return (
     <div className="bg-white rounded-2xl border p-6 shadow flex flex-col items-center gap-4">
@@ -33,7 +33,7 @@ const SellerCard = ({ sellerImage, sellerName, sellerAddress, sellerPhone }) => 
       {/* Action Buttons */}
       <button 
       className="w-full bg-blue-600 text-white font-semibold py-3 rounded-xl mt-2 flex items-center justify-center gap-2 hover:bg-blue-700 transition"
-      onClick={() => navigate('/reservation')}
+      onClick={() => navigate(`/reservation/${carId || 1}`)}
       >
         Ajukan Reservasi <ArrowRightOutlined />
       </button>

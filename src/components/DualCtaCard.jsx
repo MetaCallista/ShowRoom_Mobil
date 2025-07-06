@@ -41,10 +41,13 @@ const DualCtaCard = () => {
           {cards.map((card, idx) => (
             <div
               key={idx}
-              className="relative rounded-2xl overflow-hidden shadow-lg w-full h-[300px] flex items-end overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 "
-              style={{ backgroundImage: `url(${card.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+              className="relative rounded-2xl overflow-hidden shadow-lg w-full h-[300px] flex items-end overflow-hidden shadow-md transition-all duration-300 group"
             >
-              <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+              <div 
+                className="absolute inset-0 transition-transform duration-300 group-hover:scale-110"
+                style={{ backgroundImage: `url(${card.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+              ></div>
+              <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
               <div className="relative z-10 p-8 w-full flex flex-col justify-end h-full">
                 <h2 className="text-white text-2xl md:text-3xl font-bold mb-2 whitespace-pre-line">{card.title}</h2>
                 <p className="text-white text-base mb-6">{card.desc}</p>

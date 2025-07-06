@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Statistic, Row, Col, Progress, Table, Tag } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined, CarOutlined, UserOutlined, DollarCircleOutlined, FileTextOutlined } from '@ant-design/icons';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 // Data dummy untuk tabel
 const recentSalesData = [
@@ -21,10 +22,14 @@ const columns = [
 ];
 
 const AdminDashboard = () => {
+    const { currentUser } = useAuth();
+
     return (
-        <div className="space-y-6">
+        <div>
+            <h1 className="text-2xl font-bold mb-2">Selamat Datang, {currentUser?.nama}!</h1>
+            <p className="text-gray-600 mb-6">Ini adalah ringkasan aktivitas penjualan mobil Anda.</p>
             {/* Kartu Statistik Utama */}
-            <Row gutter={[16, 16]}>
+            <Row gutter={[16, 16]} className="mb-6">
                 <Col xs={24} sm={12} lg={8}>
                     <Card>
                         <Statistic

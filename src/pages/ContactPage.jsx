@@ -15,18 +15,13 @@ const ContactPage = () => {
     return (
         <>
         <PageHero
-            title="Daftar Mobil"
-            desc="Jelajahi koleksi mobil terbaik pilihan Showcar Buleleng. Temukan mobil impianmu di sini!"
+            title="Hubungi Kami"
+            desc="Kami senang mendengar dari Anda. Silakan hubungi kami melalui informasi di bawah atau kirimkan pesan."
         />
         <div className="bg-white">
             <div className=" max-w-7xl mx-auto px-6 lg:px-8 relative z-10 pb-16 pt-5 relative ">
                 <div className="bg-white p-8 rounded-xl shadow-lg border">
-                    <div className="text-center">
-                        <h1 className="text-4xl font-bold">Hubungi Kami</h1>
-                        <p className="mt-2 text-lg text-gray-600">Kami senang mendengar dari Anda. Silakan hubungi kami melalui informasi di bawah atau kirimkan pesan.</p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-12 mt-12">
+                    <div className="grid md:grid-cols-2 gap-12 mt-5">
                         {/* Kolom Kiri: Info Kontak & Peta */}
                         <div className="space-y-8">
                             <div>

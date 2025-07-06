@@ -19,7 +19,7 @@ const initialUserData = [
     id: 'user123',
     nama: 'Bli Penjual',
     email: 'penjual@gmail.com',
-    role: 'penjual',
+    role: 'Pengguna',
     tanggal_bergabung: '2025-07-02',
     avatar: '/assets/images/seller-avatar.png',
   },
@@ -48,13 +48,6 @@ const KelolaPengguna = () => {
     message.success(`Pengguna "${record.nama}" berhasil dihapus`);
   };
 
-  const handleJadikanAdmin = (record) => {
-    setDataSource(prev => prev.map(user => 
-        user.id === record.id ? { ...user, role: 'admin' } : user
-    ));
-    message.success(`"${record.nama}" sekarang adalah seorang Admin.`);
-  };
-
   const columns = [
     {
       title: 'Nama Pengguna',
@@ -81,7 +74,6 @@ const KelolaPengguna = () => {
       ),
       filters: [
         { text: 'Admin', value: 'admin' },
-        { text: 'Penjual', value: 'penjual' },
         { text: 'Pengguna', value: 'pengguna' },
       ],
       onFilter: (value, record) => record.role.indexOf(value) === 0,
@@ -97,15 +89,6 @@ const KelolaPengguna = () => {
       key: 'aksi',
       render: (_, record) => (
         <Space size="middle">
-          <Popconfirm
-            title={`Jadikan "${record.nama}" sebagai Admin?`}
-            onConfirm={() => handleJadikanAdmin(record)}
-            okText="Ya"
-            cancelText="Batal"
-            disabled={record.role === 'admin'}
-          >
-            <Button icon={<CrownOutlined />} disabled={record.role === 'admin'}>Jadikan Admin</Button>
-          </Popconfirm>
           <Popconfirm
             title="Yakin ingin menghapus pengguna ini?"
             onConfirm={() => handleHapus(record)}

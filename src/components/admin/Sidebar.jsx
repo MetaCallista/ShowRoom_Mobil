@@ -35,7 +35,6 @@ const Sidebar = () => {
             <div className="flex h-full max-h-screen flex-col gap-2">
                 <div className="flex h-16 items-center border-b px-6">
                     <Link to="/" className="flex items-center gap-2 font-bold text-xl text-gray-800">
-                        <SafetyCertificateOutlined className="text-blue-600" />
                         <span>SHOWCAR</span>
                     </Link>
                 </div>
@@ -45,13 +44,11 @@ const Sidebar = () => {
                         <SidebarLink to="/admin" icon={<DashboardOutlined />}>Dashboard</SidebarLink>
                         
                         <span className="px-3 py-2 mt-4 text-xs font-semibold uppercase text-gray-400">Manajemen</span>
+                        <SidebarLink to="/admin/profile" icon={<CarOutlined />}>Profile</SidebarLink>
                         <SidebarLink to="/admin/mobil" icon={<CarOutlined />}>Kelola Mobil</SidebarLink>
                         <SidebarLink to="/admin/pengguna" icon={<UsergroupAddOutlined />}>Kelola Pengguna</SidebarLink>
                         <SidebarLink to="/admin/blog" icon={<FileTextOutlined />}>Kelola Blog</SidebarLink>
-
-                        <span className="px-3 py-2 mt-4 text-xs font-semibold uppercase text-gray-400">Autentikasi</span>
-                        <SidebarLink to="/login" icon={<LoginOutlined />}>Login</SidebarLink>
-                        <SidebarLink to="/login" icon={<UserAddOutlined />}>Register</SidebarLink>
+                        <SidebarLink to="/admin/reservasi" icon={<SafetyCertificateOutlined />}>Kelola Reservasi</SidebarLink>
                     </nav>
                 </div>
             </div>

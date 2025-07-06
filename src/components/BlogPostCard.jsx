@@ -6,7 +6,7 @@ const BlogPostCard = ({ post }) => {
   return (
     <Link 
       to={`/blog/${post.id}`} 
-      className="block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1"
+      className="block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 border"
     >
       {/* Bagian Gambar */}
       <div className="relative overflow-hidden">

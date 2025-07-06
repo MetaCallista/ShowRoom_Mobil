@@ -41,7 +41,7 @@ const HeroSection = () => {
   const { img, title, desc } = slides[activeIndex];
 
   return (
-    <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-12 pt-15 pb-16">
+    <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-16">
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg ">
         <img
           src={img}

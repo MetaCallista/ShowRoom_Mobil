@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CtaBanner = () => {
   return (
+    
     <div 
       className="relative bg-cover bg-center h-[500px] flex items-center justify-center text-white"
       // Menggunakan gambar yang lebih relevan dengan mobil

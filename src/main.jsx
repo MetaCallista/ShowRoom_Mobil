@@ -12,7 +12,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { AuthProvider } from './context/AuthContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
+  <React.StrictMode >
     <BrowserRouter>
       {/* 2. Bungkus App dengan AuthProvider */}
       <AuthProvider>

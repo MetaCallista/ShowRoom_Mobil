@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button, notification, Dropdown, Avatar, Menu } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { UserOutlined, LogoutOutlined, LayoutOutlined } from '@ant-design/icons';
 
 const Navbar = () => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [api, contextHolder] = notification.useNotification();
 
   const handleLogout = () => {
@@ -25,12 +26,12 @@ const Navbar = () => {
         {/* Tampilkan link berdasarkan peran */}
         {currentUser?.role === 'admin' && (
             <Menu.Item key="admin-dashboard" icon={<LayoutOutlined />}>
-                <Link to="/admin">Dasbor Admin</Link>
+                <Link to="/admin">Dashboard Admin</Link>
             </Menu.Item>
         )}
         {currentUser?.role === 'penjual' && (
             <Menu.Item key="user-profile" icon={<UserOutlined />}>
-                <Link to="/profil">Profil Saya</Link>
+                <Link to="/user">Dashboard User</Link>
             </Menu.Item>
         )}
         <Menu.Item key="logout" icon={<LogoutOutlined />} onClick={handleLogout}>
@@ -47,11 +48,54 @@ const Navbar = () => {
         
         {/* Menu Navigasi Utama */}
         <div className="hidden md:flex gap-6 items-center text-black font-medium">
-          <Link to="/" className="hover:text-blue-600">Beranda</Link>
-          <Link to="/listing" className="hover:text-blue-600">Daftar Mobil</Link>
-          <Link to="/blog" className="hover:text-blue-600">Artikel</Link>
-          <Link to="/bantuan" className="hover:text-blue-600">Bantuan</Link>
-          <Link to="/kontak" className="hover:text-blue-600">Kontak</Link>
+          <Link
+            to="/"
+            className={`relative flex flex-col items-center font-medium hover:text-blue-600
+              after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:transition-transform after:duration-300 after:scale-x-0 after:origin-left hover:after:scale-x-100
+              ${location.pathname === '/' ? 'font-semibold after:scale-x-100' : ''}`}
+          >
+            Beranda
+          </Link>
+          <Link
+            to="/listing"
+            className={`relative flex flex-col items-center font-medium hover:text-blue-600
+              after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:transition-transform after:duration-300 after:scale-x-0 after:origin-left hover:after:scale-x-100
+              ${location.pathname === '/listing' ? 'font-semibold after:scale-x-100' : ''}`}
+          >
+            Daftar Mobil
+          </Link>
+          <Link
+            to="/blog"
+            className={`relative flex flex-col items-center font-medium hover:text-blue-600
+              after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:transition-transform after:duration-300 after:scale-x-0 after:origin-left hover:after:scale-x-100
+              ${location.pathname === '/blog' ? 'font-semibold after:scale-x-100' : ''}`}
+          >
+            Artikel
+          </Link>
+          <Link
+            to="/bantuan"
+            className={`relative flex flex-col items-center font-medium hover:text-blue-600
+              after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:transition-transform after:duration-300 after:scale-x-0 after:origin-left hover:after:scale-x-100
+              ${location.pathname === '/bantuan' ? 'font-semibold after:scale-x-100' : ''}`}
+          >
+            Bantuan
+          </Link>
+          <Link
+            to="/kontak"
+            className={`relative flex flex-col items-center font-medium hover:text-blue-600
+              after:content-[''] after:block after:w-full after:h-[2px] after:bg-black after:transition-transform after:duration-300 after:scale-x-0 after:origin-left hover:after:scale-x-100
+              ${location.pathname === '/kontak' ? 'font-semibold after:scale-x-100' : ''}`}
+          >
+            Kontak
+          </Link>
+          {/* Tampilkan link Dashboard Admin hanya jika peran adalah 'admin' */}
+          {currentUser && currentUser.role === 'admin' && (
+            <Link to="/admin" className={`text-yellow-500 hover:text-yellow-400 font-bold relative flex flex-col items-center
+              after:content-[''] after:block after:w-full after:h-[2px] after:bg-yellow-500 after:transition-transform after:duration-300 after:scale-x-0 after:origin-left hover:after:scale-x-100
+              ${location.pathname === '/admin' ? 'after:scale-x-100' : ''}`}>
+              Dashboard Admin
+            </Link>
+          )}
         </div>
         
         {/* Bagian Kanan: Tombol Aksi & Info Pengguna */}

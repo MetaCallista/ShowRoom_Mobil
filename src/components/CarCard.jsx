@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HeartOutlined, DashboardOutlined, FireOutlined, GatewayOutlined } from '@ant-design/icons';
+import {  DashboardOutlined, FireOutlined, GatewayOutlined } from '@ant-design/icons';
 
-const CarCard = ({ car }) => { {
-  };
+const CarCard = ({ car }) => {
 
   return (
-    <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white">
+    <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 group bg-white hover:-translate-y-1">
       <div className="relative">
-        <img src={car.imageUrl} alt={car.name} className="w-full h-48 object-cover" />
+        <img src={car.imageUrl} alt={car.name} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
       </div>
       <div className="p-4 flex flex-col gap-3">
         <h3 className="text-lg font-bold text-gray-800 truncate">{car.name}</h3>
-        <p className="text-sm text-gray-500 truncate">{car.spec}</p>
+        <p className="text-sm text-gray-500 truncate">{car.desc}</p>
         
         <div className="flex justify-between items-center text-gray-600 border-t border-b py-3">
           <div className="flex items-center gap-2">

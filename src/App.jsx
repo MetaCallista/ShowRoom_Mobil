@@ -19,19 +19,23 @@ import ReservationPage from './pages/ReservationPage.jsx';
 
 // Halaman Admin
 import AdminDashboardPage from './pages/Admin/AdminDashboard.jsx';
-import KelolaMobilPage from './pages/Admin/KelolaMobil.jsx';
+import KelolaMobilPage from './pages/Admin/KelolaMobilAdmin.jsx';
 import TambahMobilPage from './pages/Admin/TambahMobil.jsx';
-import EditMobilPage from './pages/Admin/EditMobil.jsx';
+import EditMobilAdmin from './pages/Admin/EditMobilAdmin.jsx';
 import KelolaPenggunaPage from './pages/Admin/KelolaPengguna.jsx';
 import KelolaBlogPage from './pages/Admin/KelolaBlog.jsx';
 import TambahArtikelPage from './pages/Admin/TambahArtikel.jsx';
 import EditArtikelPage from './pages/Admin/EditArtikel.jsx';
+import KelolaReservasiAdminPage from './pages/Admin/KelolaReservasiAdminPage.jsx';
+import AdminProfilePage from './pages/Admin/AdminProfilePage.jsx';
 
 // Halaman Pengguna (Penjual)
 import UserProfilePage from './pages/User/UserProfilePage.jsx';
-import KelolaMobilSayaPage from './pages/User/KelolaMobilSayaPage.jsx';
+import KelolaMobilUser from './pages/User/KelolaMobilUser.jsx';
 import KelolaReservasiPage from './pages/User/KelolaReservasiPage.jsx';
 import JualMobilPage from './pages/User/JualMobilPage.jsx';
+import UserDashboardPage from './pages/User/UserDashboardPage.jsx';
+import EditMobilUser from './pages/User/EditMobilUser.jsx';
 
 // Context Providers
 import { CarProvider } from './context/CarContext.jsx';
@@ -53,7 +57,7 @@ function App() {
             <Route path="/blog/:postId" element={<BlogPostPage />} />
             <Route path="/bantuan" element={<HelpPage />} />
             <Route path="/kontak" element={<ContactPage />} />
-            <Route path="reservation" element={<ReservationPage />} />
+            <Route path="reservation/:carId?" element={<ReservationPage />} />
           </Route>
 
           {/* Rute Autentikasi (tanpa layout) */}
@@ -64,21 +68,23 @@ function App() {
             <Route index element={<AdminDashboardPage />} />
             <Route path="mobil" element={<KelolaMobilPage />} />
             <Route path="mobil/tambah" element={<TambahMobilPage />} />
-            <Route path="mobil/edit/:carId" element={<EditMobilPage />} />
+            <Route path="mobil/edit/:carId" element={<EditMobilAdmin />} />
             <Route path="pengguna" element={<KelolaPenggunaPage />} />
             <Route path="blog" element={<KelolaBlogPage />} />
             <Route path="blog/tambah" element={<TambahArtikelPage />} />
             <Route path="blog/edit/:postId" element={<EditArtikelPage />} />
-           
+            <Route path="reservasi" element={<KelolaReservasiAdminPage />} />
+            <Route path="profile" element={<AdminProfilePage />} />
           </Route>
 
           {/* Rute Dasbor Pengguna Terproteksi */}
-          <Route path="/profil" element={<UserDashboardLayout />}>
-            <Route index element={<UserProfilePage />} />
-            <Route path="mobil-saya" element={<KelolaMobilSayaPage />} />
+          <Route path="/user" element={<UserDashboardLayout />}>
+            <Route index element={<UserDashboardPage />} />
+            <Route path="mobil" element={<KelolaMobilUser />} />
             <Route path="reservasi" element={<KelolaReservasiPage />} />
-            <Route path="jual-mobil" element={<JualMobilPage />} />
-            <Route path="mobil/edit/:carId" element={<EditMobilPage />} />
+            <Route path="mobil/tambah" element={<JualMobilPage />} />
+            <Route path="mobil/edit/:postId" element={<EditMobilUser />} />
+            <Route path="profile" element={<UserProfilePage  />} />
           </Route>
         </Routes>
       </BlogProvider>

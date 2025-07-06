@@ -43,7 +43,7 @@ const HelpPage = () => {
     <div className="bg-white">
         <div className=" max-w-7xl mx-auto px-6 lg:px-8 relative z-10 pb-16 pt-5">
             <div className="bg-white p-8 rounded-xl shadow-lg border">
-                <Collapse accordion defaultActiveKey={['1']} bordered={false} className="bg-white">
+                <Collapse accordion defaultActiveKey={['']} bordered={false} className="bg-white">
                     {faqData.map(faq => (
                         <Panel 
                             header={

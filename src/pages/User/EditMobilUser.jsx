@@ -7,7 +7,7 @@ import { useCar } from '../../context/CarContext.jsx';
 const { Option } = Select;
 const { Dragger } = Upload;
 
-const EditMobil = () => {
+const EditMobilUser = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const { carId } = useParams();
@@ -30,7 +30,7 @@ const EditMobil = () => {
             placement: 'topRight',
         });
         setTimeout(() => {
-            navigate('/admin/mobil');
+            navigate('/user/mobil');
         }, 1000);
     } catch(error) {
         api.error({
@@ -100,4 +100,4 @@ const EditMobil = () => {
   );
 };
 
-export default EditMobil;
+export default EditMobilUser;
