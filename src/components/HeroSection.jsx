@@ -42,11 +42,11 @@ const HeroSection = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-16">
-      <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg ">
+      <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
         <img
           src={img}
           alt={title}
-          className="w-full h-full object-cover transition-all duration-700"
+          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         {/* Arrow Buttons */}

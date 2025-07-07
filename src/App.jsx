@@ -16,6 +16,8 @@ import AuthPage from './pages/AuthPage.jsx';
 import HelpPage from './pages/HelpPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import ReservationPage from './pages/ReservationPage.jsx';
+import SellerStockPage from './pages/SellerStockPage.jsx';
+
 
 // Halaman Admin
 import AdminDashboardPage from './pages/Admin/AdminDashboard.jsx';
@@ -58,6 +60,7 @@ function App() {
             <Route path="/bantuan" element={<HelpPage />} />
             <Route path="/kontak" element={<ContactPage />} />
             <Route path="reservation/:carId?" element={<ReservationPage />} />
+            <Route path="/seller-stock" element={<SellerStockPage />} />
           </Route>
 
           {/* Rute Autentikasi (tanpa layout) */}

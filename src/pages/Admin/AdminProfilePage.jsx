@@ -33,11 +33,6 @@ const AdminProfilePage = () => {
             <div className="flex flex-col md:flex-row items-start gap-8">
                 <div className="text-center">
                     <Avatar size={128} src={currentUser?.avatar || '/assets/images/seller-avatar.png'} icon={<UserOutlined />} />
-                    <Upload showUploadList={false}>
-                        <Button icon={<UploadOutlined />} className="mt-4">
-                            Ganti Foto
-                        </Button>
-                    </Upload>
                 </div>
                 <div className="flex-grow">
                     <Form form={form} layout="vertical" onFinish={onFinish}>

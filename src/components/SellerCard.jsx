@@ -41,8 +41,8 @@ const SellerCard = ({ sellerImage, sellerName, sellerAddress, sellerPhone, carId
         Chat Via Whatsapp <ArrowRightOutlined />
       </button>
       {/* Link to all stock */}
-      <a href="#" className="block text-center text-gray-600 mt-4 hover:underline text-sm flex items-center justify-center gap-1">
-        View All stock at this dealer <ArrowRightOutlined />
+      <a href="/seller-stock" className="block text-center text-gray-600 mt-4 hover:underline text-sm flex items-center justify-center gap-1">
+        View All stock at this seller <ArrowRightOutlined />
       </a>
     </div>
   );

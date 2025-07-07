@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Avatar, Tag, Divider, Form, Input, Button } from 'antd';
+import { Avatar, Tag, Divider, Form, Input, Button, List } from 'antd'; // Import List for rendering comments
 import { CheckCircleFilled, FacebookFilled, TwitterOutlined, InstagramOutlined } from '@ant-design/icons';
 
 // Impor komponen pendukung
-import DetailHero from '../components/DetailHero.jsx';
-import BlogSidebar from '../components/BlogSidebar.jsx';
+import DetailHero from '../components/DetailHero.jsx'; // Make sure this path is correct
+import BlogSidebar from '../components/BlogSidebar.jsx'; // Make sure this path is correct
 
 const BlogPostPage = () => {
     // Mengambil ID postingan dari URL, contoh: /blog/1
     const { postId } = useParams();
-    
+
     // State untuk menampung data artikel dan status loading
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
+    // State BARU untuk menampung komentar
+    const [comments, setComments] = useState([]);
+
+    // Ant Design Form instance untuk mereset input setelah submit
+    const [form] = Form.useForm();
 
     useEffect(() => {
         // --- DI SINI ANDA AKAN MENGAMBIL DATA DARI DATABASE ---
@@ -37,9 +42,12 @@ const BlogPostPage = () => {
                             <li>Cara memformat seri postingan blog</li>
                             <li>Cara terbaik memformat sebuah seri</li>
                         </ul>
-                    `
+                    `,
+                    comments: [ // Komentar awal untuk postingan ini
+                        { id: 1, author: 'Budi Santoso', content: 'Artikel yang sangat informatif, terima kasih!', date: '24 November 2023' },
+                        { id: 2, author: 'Siti Aminah', content: 'Saya jadi tertarik dengan BMW X6 setelah membaca ini.', date: '25 November 2023' },
+                    ]
                 },
-                // --- PERUBAHAN DI SINI: Menambahkan data untuk artikel lain ---
                 '2': {
                     id: 2,
                     title: 'Sedan Listrik Terbaru: All-New Mercedes-Benz EQE',
@@ -49,7 +57,10 @@ const BlogPostPage = () => {
                     tags: ['Berita', 'Mobil Listrik'],
                     content: `
                         <p>Mercedes-Benz kembali menggebrak pasar mobil listrik dengan meluncurkan EQE Sedan. Mobil ini menawarkan kemewahan, teknologi canggih, dan jarak tempuh yang impresif, menjadikannya pesaing kuat di segmen sedan listrik premium.</p>
-                    `
+                    `,
+                    comments: [
+                        { id: 3, author: 'Agus Salim', content: 'Mobil listrik memang masa depan! EQE ini terlihat sangat menjanjikan.', date: '16 Oktober 2023' }
+                    ]
                 },
                 '3': {
                     id: 3,
@@ -67,17 +78,32 @@ const BlogPostPage = () => {
                             <li>Pastikan sistem kelistrikan berfungsi normal.</li>
                             <li>Beli dari dealer terpercaya yang memberikan garansi.</li>
                         </ol>
-                    `
+                    `,
+                    comments: [] // Tidak ada komentar awal
                 }
             };
 
             const result = blogDatabase[postId];
             setPost(result);
+            // Inisialisasi komentar saat data post dimuat
+            setComments(result ? result.comments : []);
             setLoading(false);
         };
 
         fetchPostData();
     }, [postId]); // Efek ini akan berjalan lagi jika postId berubah
+
+    // Handler untuk mengirim komentar baru
+    const onFinishComment = (values) => {
+        const newComment = {
+            id: comments.length + 1, // ID sederhana, di dunia nyata pakai UUID
+            author: values.name || 'Anonim', // Gunakan 'Anonim' jika nama tidak diisi
+            content: values.comment,
+            date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }), // Tanggal saat ini
+        };
+        setComments(prevComments => [...prevComments, newComment]);
+        form.resetFields(); // Reset form setelah submit
+    };
 
     if (loading) {
         return <div className="text-center py-40">Memuat artikel...</div>;
@@ -91,7 +117,7 @@ const BlogPostPage = () => {
         <div className="bg-white">
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-16 mt-20 ">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-                    
+
                     {/* Kolom Kiri: Konten Artikel Utama */}
                     <div className="lg:col-span-2 bg-white p-8 rounded-xl shadow-lg border space-y-8">
                         {/* === Judul & Metadata === */}
@@ -108,7 +134,7 @@ const BlogPostPage = () => {
 
                         {/* === Gambar Utama & Konten Artikel === */}
                         <img src={post.imageUrl} alt={post.title} className="w-full rounded-lg" />
-                        <article 
+                        <article
                             className="prose lg:prose-xl max-w-none"
                             dangerouslySetInnerHTML={{ __html: post.content }}
                         />
@@ -119,23 +145,56 @@ const BlogPostPage = () => {
                         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                             <div className="flex items-center gap-4">
                                 <span className="font-bold">Bagikan:</span>
-                                <a href="#" className="text-gray-500 hover:text-blue-600"><FacebookFilled /></a>
-                                <a href="#" className="text-gray-500 hover:text-blue-600"><TwitterOutlined /></a>
-                                <a href="#" className="text-gray-500 hover:text-blue-600"><InstagramOutlined /></a>
+                                <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600"><FacebookFilled /></a>
+                                <a href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=${encodeURIComponent(post.title)}`} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600"><TwitterOutlined /></a>
+                                <a href={`https://www.instagram.com/share?url=${window.location.href}`} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-pink-600"><InstagramOutlined /></a>
                             </div>
                         </div>
-                        
+
+                        <Divider />
+
+                        {/* === Daftar Komentar === */}
+                        <div>
+                            <h3 className="text-2xl font-bold mb-6">Komentar ({comments.length})</h3>
+                            <List
+                                itemLayout="horizontal"
+                                dataSource={comments}
+                                renderItem={comment => (
+                                    <List.Item>
+                                        <List.Item.Meta
+                                            avatar={<Avatar src={`https://api.dicebear.com/7.x/initials/svg?seed=${comment.author}`} />} // Avatar random berdasarkan inisial nama
+                                            title={
+                                                <div className="flex justify-between items-center">
+                                                    <span className="font-semibold">{comment.author}</span>
+                                                    <span className="text-xs text-gray-500">{comment.date}</span>
+                                                </div>
+                                            }
+                                            description={<p className="text-gray-700">{comment.content}</p>}
+                                        />
+                                    </List.Item>
+                                )}
+                            />
+                        </div>
+
                         <Divider />
 
                         {/* === Formulir Komentar === */}
                         <div>
                             <h3 className="text-2xl font-bold mb-6">Tinggalkan Komentar</h3>
-                            <Form layout="vertical">
-                                <Form.Item name="comment" label="Komentar Anda">
+                            <Form form={form} layout="vertical" onFinish={onFinishComment}>
+                                <Form.Item
+                                    name="comment"
+                                    label="Komentar Anda"
+                                    rules={[{ required: true, message: 'Harap tulis komentar Anda!' }]}
+                                >
                                     <Input.TextArea rows={4} placeholder="Tulis komentar Anda di sini..." />
                                 </Form.Item>
-                                <Form.Item name="name" label="Nama">
-                                    <Input placeholder="Nama Anda" />
+                                <Form.Item
+                                    name="name"
+                                    label="Nama"
+                                    // rules={[{ required: true, message: 'Harap masukkan nama Anda!' }]} // Opsional, bisa dihapus jika nama tidak wajib
+                                >
+                                    <Input placeholder="Nama Anda (opsional)" />
                                 </Form.Item>
                                 <Button type="primary" htmlType="submit">Kirim Komentar</Button>
                             </Form>

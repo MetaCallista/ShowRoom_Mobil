@@ -74,7 +74,7 @@ const CarDetailPage = () => {
                 <div className="col-span-3 relative rounded-xl overflow-hidden">
                   <img
                     src={car.images[0]}
-                    className="w-full h-80 object-cover rounded-xl cursor-pointer"
+                    className="w-full h-80 object-cover rounded-xl cursor-pointer hover:scale-105 transition-transform duration-300"
                     alt="Main Car"
                     onClick={() => handlePreview(car.images[0])}
                   />
@@ -84,7 +84,7 @@ const CarDetailPage = () => {
                     <img
                       key={i}
                       src={img}
-                      className="w-full h-36 object-cover rounded-xl cursor-pointer"
+                      className="w-full h-36 object-cover rounded-xl cursor-pointer hover:scale-105 transition-transform duration-300"
                       alt={`Thumbnail ${i+1}`}
                       onClick={() => handlePreview(img)}
                     />
@@ -119,7 +119,7 @@ const CarDetailPage = () => {
         centered
         width={800}
       >
-        <img alt="Preview" src={previewImage} className="w-full h-auto rounded-xl" />
+        <img alt="Preview" src={previewImage} className="w-full rounded-xl" />
       </Modal>
     </div>
   );

@@ -66,6 +66,7 @@ const EditMobilUser = () => {
                       <Form.Item name="fuel_type" label="Bahan Bakar" rules={[{ required: true }]}><Select><Option value="Bensin">Bensin</Option><Option value="Diesel">Diesel</Option><Option value="Hybrid">Hybrid</Option><Option value="Listrik">Listrik</Option></Select></Form.Item>
                       <Form.Item name="color" label="Warna" rules={[{ required: true, message: 'Warna wajib diisi!' }]}><Input placeholder="Contoh: Hitam Metalik" /></Form.Item>
                       <Form.Item name="location" label="Lokasi Mobil" rules={[{ required: true }]}><Input placeholder="Contoh: Singaraja, Buleleng" /></Form.Item>
+                        <Form.Item name="status" label="Status" rules={[{ required: true }]}><Select><Option value="Tersedia">Tersedia</Option><Option value="Terjual">Terjual</Option></Select></Form.Item>
                   </Col>
               </Row>
               <Form.Item 

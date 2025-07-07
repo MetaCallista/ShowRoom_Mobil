@@ -88,14 +88,6 @@ const Navbar = () => {
           >
             Kontak
           </Link>
-          {/* Tampilkan link Dashboard Admin hanya jika peran adalah 'admin' */}
-          {currentUser && currentUser.role === 'admin' && (
-            <Link to="/admin" className={`text-yellow-500 hover:text-yellow-400 font-bold relative flex flex-col items-center
-              after:content-[''] after:block after:w-full after:h-[2px] after:bg-yellow-500 after:transition-transform after:duration-300 after:scale-x-0 after:origin-left hover:after:scale-x-100
-              ${location.pathname === '/admin' ? 'after:scale-x-100' : ''}`}>
-              Dashboard Admin
-            </Link>
-          )}
         </div>
         
         {/* Bagian Kanan: Tombol Aksi & Info Pengguna */}
