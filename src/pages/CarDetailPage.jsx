@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Tag, Button, Divider, Modal } from 'antd';
 import { CheckCircleFilled, ArrowLeftOutlined } from '@ant-design/icons';
-
+import { motion } from 'framer-motion';
 // Impor komponen-komponen tampilan
 import ImageGallery from '../components/ImageGallery.jsx';
 import CarOverview from '../components/CarOverview.jsx';
@@ -58,7 +58,13 @@ const CarDetailPage = () => {
   if (!car) return <div className="text-center py-40">404: Mobil Tidak Ditemukan!</div>;
 
   return (
-    <div className="bg-white">
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -40 }}
+      transition={{ duration: 0.3 }}
+      className="bg-white"
+    >
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-10">
         <div className="bg-white p-8 rounded-xl shadow-lg border mt-10">
           {/* Tombol Back */}
@@ -121,7 +127,7 @@ const CarDetailPage = () => {
       >
         <img alt="Preview" src={previewImage} className="w-full rounded-xl" />
       </Modal>
-    </div>
+    </motion.div>
   );
 };
 

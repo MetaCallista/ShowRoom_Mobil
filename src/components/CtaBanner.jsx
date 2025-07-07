@@ -13,7 +13,7 @@ const CtaBanner = () => {
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 text-center p-4">
-        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+        <h2 className="text-4xl md:text-5xl font-bold leading-tight">
           Mencari Mobil Impian Jadi <br /> Lebih Mudah
         </h2>
         <p className="mt-4 max-w-xl text-lg text-gray-200">

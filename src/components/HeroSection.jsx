@@ -8,12 +8,12 @@ const slides = [
     desc: "The World's Largest Used Car Dealership",
   },
   {
-    img: '/assets/images/camry.png',
+    img: '/assets/images/Orange-car.jpg',
     title: 'Drive Your Dream Car Today',
     desc: 'Best deals, best cars, best service.',
   },
   {
-    img: '/assets/images/ford-explorer.png',
+    img: '/assets/images/White-car.jpg',
     title: 'Sell Your Car With Ease',
     desc: 'Fast, safe, and transparent process.',
   },
@@ -42,7 +42,7 @@ const HeroSection = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-16 ">
-      <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
+      <div className="relative w-full h-[620px] rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
         <img
           src={img}
           alt={title}

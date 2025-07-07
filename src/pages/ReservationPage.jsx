@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, DatePicker, TimePicker, message } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CheckCircleFilled, ArrowLeftOutlined } from '@ant-design/icons';
+import { motion } from 'framer-motion';
 
 const ReservationPage = () => {
   const [form] = Form.useForm();
@@ -47,10 +48,16 @@ const ReservationPage = () => {
   };  
 
   return (
-    <div className="bg-white">
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -40 }}
+      transition={{ duration: 0.3 }}
+      className="bg-white"
+    >
     <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pb-10 "> 
     
-      <div className="bg-white p-8 py-16 rounded-xl shadow-lg border mt-10">
+      <div className="bg-white p-8 rounded-xl shadow-lg border mt-10">
         {/* Tombol Kembali */}
        <button onClick={() => navigate(-1)} className="mb-4 flex items-center gap-2 text-blue-600 hover:underline">
             <ArrowLeftOutlined /> Kembali
@@ -102,11 +109,11 @@ const ReservationPage = () => {
           {/* Car Image Section */}
           {car && (
             <div className="flex flex-col items-center justify-center">
-              <div className="relative w-full max-w-md">
+              <div className="relative w-full max-w-md overflow-hidden rounded-lg shadow-lg">
                 <img 
                   src={car.imageUrl} 
                   alt={car.name}
-                  className="w-full h-auto rounded-lg shadow-lg"
+                  className="w-full h-auto rounded-lg transition-all duration-300 hover:scale-105"
                 />
               </div>
               <div className="mt-6 text-center">
@@ -128,7 +135,7 @@ const ReservationPage = () => {
         </div>
       </div>
     </div>
-    </div>
+    </motion.div>
   );
 };
 

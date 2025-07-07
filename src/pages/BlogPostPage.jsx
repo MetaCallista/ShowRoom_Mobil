@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Avatar, Tag, Divider, Form, Input, Button, List } from 'antd'; // Import List for rendering comments
 import { CheckCircleFilled, FacebookFilled, TwitterOutlined, InstagramOutlined } from '@ant-design/icons';
+import { motion } from 'framer-motion';
 
 // Impor komponen pendukung
 import DetailHero from '../components/DetailHero.jsx'; // Make sure this path is correct
@@ -114,8 +115,13 @@ const BlogPostPage = () => {
     }
 
     return (
-        <div className="bg-white">
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-16 mt-20 ">
+        <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-10 ">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
 
                     {/* Kolom Kiri: Konten Artikel Utama */}
@@ -210,7 +216,7 @@ const BlogPostPage = () => {
 
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
