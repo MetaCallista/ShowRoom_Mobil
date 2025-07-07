@@ -48,11 +48,13 @@ const WhyChooseUs = () => {
             </div>
           </div>
           <div>
-            <img 
-              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" 
-              alt="Mobil berkualitas" 
-              className="rounded-lg shadow-lg w-full h-auto"
-            />
+            <div className="relative w-full h-full overflow-hidden rounded-lg shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
+                alt="Mobil berkualitas"
+                className=" w-full h-auto transition-all duration-300 hover:scale-105"
+              />
+            </div>
           </div>
         </div>
       </div>

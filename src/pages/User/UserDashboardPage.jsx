@@ -70,15 +70,7 @@ const UserDashboardPage = () => {
                 </Col>
 
                 {/* Kolom Kanan: Progress Penjualan */}
-                <Col xs={24} lg={8}>
-                    <Card title="Target Penjualan Tahunan">
-                        <div className="text-center">
-                            <Progress type="circle" percent={75} strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }} />
-                            <p className="font-semibold text-lg mt-4">Rp 3.6 M / Rp 4.8 M</p>
-                            <p className="text-gray-500">Target tahun 2025</p>
-                        </div>
-                    </Card>
-                </Col>
+                
             </Row>
         </div>
     );

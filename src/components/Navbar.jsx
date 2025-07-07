@@ -95,11 +95,17 @@ const Navbar = () => {
           {currentUser ? (
             // Jika ada pengguna yang login, tampilkan tombol Jual Mobil dan Dropdown Profil
             <>
-              <Button type="primary" shape="round" onClick={() => navigate('/admin/mobil/tambah')}>
+              <Button type="primary" shape="round" onClick={() => {
+                if (currentUser.role === 'admin') {
+                  navigate('/admin/mobil/tambah');
+                } else {
+                  navigate('/user/mobil/tambah');
+                }
+              }}>
                 Jual Mobil
               </Button>
               <Dropdown overlay={userMenu} trigger={['click']}>
-                <div className="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-gray-100">
+                <div className="flex items-center gap-2 cursor-pointer p-2 rounded-3xl hover:bg-gray-100">
                   <Avatar src={currentUser.avatar || '/assets/images/seller-avatar.png'} />
                   <span className="font-semibold">{currentUser.nama}</span>
                 </div>

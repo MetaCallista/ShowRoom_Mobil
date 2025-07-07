@@ -30,6 +30,7 @@ import TambahArtikelPage from './pages/Admin/TambahArtikel.jsx';
 import EditArtikelPage from './pages/Admin/EditArtikel.jsx';
 import KelolaReservasiAdminPage from './pages/Admin/KelolaReservasiAdminPage.jsx';
 import AdminProfilePage from './pages/Admin/AdminProfilePage.jsx';
+import DetailReservasiAdminPage from './pages/Admin/DetailReservasiAdminPage.jsx';
 
 // Halaman Pengguna (Penjual)
 import UserProfilePage from './pages/User/UserProfilePage.jsx';
@@ -38,6 +39,7 @@ import KelolaReservasiPage from './pages/User/KelolaReservasiPage.jsx';
 import JualMobilPage from './pages/User/JualMobilPage.jsx';
 import UserDashboardPage from './pages/User/UserDashboardPage.jsx';
 import EditMobilUser from './pages/User/EditMobilUser.jsx';
+import DetailReservasiUserPage from './pages/User/DetailReservasiUserPage.jsx';
 
 // Context Providers
 import { CarProvider } from './context/CarContext.jsx';
@@ -78,6 +80,7 @@ function App() {
             <Route path="blog/edit/:postId" element={<EditArtikelPage />} />
             <Route path="reservasi" element={<KelolaReservasiAdminPage />} />
             <Route path="profile" element={<AdminProfilePage />} />
+            <Route path="reservasi/detail" element={<DetailReservasiAdminPage />} />
           </Route>
 
           {/* Rute Dasbor Pengguna Terproteksi */}
@@ -88,6 +91,7 @@ function App() {
             <Route path="mobil/tambah" element={<JualMobilPage />} />
             <Route path="mobil/edit/:carId" element={<EditMobilUser />} />
             <Route path="profile" element={<UserProfilePage  />} />
+            <Route path="reservasi/detail" element={<DetailReservasiUserPage />} />
           </Route>
         </Routes>
       </BlogProvider>

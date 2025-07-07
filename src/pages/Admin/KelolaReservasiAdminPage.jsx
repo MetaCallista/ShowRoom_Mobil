@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Tag, Space, Button, message, Popconfirm, Tabs } from 'antd'; // Import Tabs
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons';
+import { Link, useLocation } from 'react-router-dom';
 
 const initialReservasiData = [
   { key: '1', id: 1, peminat: 'Gede', mobil: 'Toyota Avanza G 2019', tanggal: '2025-07-10 14:00', lokasi: 'Denpasar', status: 'Menunggu Konfirmasi', tipe: 'diajukan' },
@@ -11,6 +12,8 @@ const initialReservasiData = [
 
 const KelolaReservasiAdminPage = () => {
   const [data, setData] = useState(initialReservasiData);
+  const location = useLocation();
+  const defaultTab = location.state?.tab || '1';
 
   const handleConfirm = (key) => {
     setData(prev => prev.map(item => item.key === key ? { ...item, status: 'Dikonfirmasi' } : item));
@@ -72,7 +75,7 @@ const KelolaReservasiAdminPage = () => {
     },
   ];
 
-  // Kolom untuk Reservasi Masuk (Konfirmasi, Tolak, Hapus)
+  // Kolom untuk Reservasi Masuk (Konfirmasi, Tolak, Hapus, Mata di dalam Aksi)
   const columnsMasuk = [
     { title: 'Nama Peminat', dataIndex: 'peminat', key: 'peminat' },
     { title: 'Mobil yang Diminati', dataIndex: 'mobil', key: 'mobil' },
@@ -95,6 +98,10 @@ const KelolaReservasiAdminPage = () => {
       key: 'aksi',
       render: (_, record) => (
         <Space size="small">
+          {/* Tombol Preview */}
+          <Link to={`/admin/reservasi/detail`}>
+            <Button icon={<EyeOutlined />} size="small" />
+          </Link>
           {/* Popconfirm untuk Konfirmasi */}
           {record.status === 'Menunggu Konfirmasi' && (
             <Popconfirm
@@ -153,7 +160,7 @@ const KelolaReservasiAdminPage = () => {
     <div className="p-6 bg-white rounded-xl shadow-md">
       <h1 className="text-2xl font-bold mb-6">Kelola Reservasi Pertemuan</h1>
       {/* Gunakan komponen Tabs di sini */}
-      <Tabs defaultActiveKey="1" items={tabItems} />
+      <Tabs defaultActiveKey={defaultTab} items={tabItems} />
       {/* Hapus tabel yang redundan di bawah ini */}
       {/* <Table columns={columns} dataSource={data} rowKey="key" /> */}
     </div>
